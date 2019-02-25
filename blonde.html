@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<head>
+<script src="/assets/jquery.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Shrikhand" rel="stylesheet">
+<style>
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: url("https://s3.amazonaws.com/factmag-images/wp-content/uploads/2016/08/BDC_PopUp_FlyerFInal_grande1-650x630.jpg");
+  background-size: 450px;
+}
+
+div {
+  height: 289px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+  font-family: 'Archivo Black', sans-serif;
+  font-style: italic;
+  text-align: center;
+  font-size: 75px;
+  color: #f4ad42;
+  margin: 60px 0 0 0;
+}
+h2 {
+  font-family: 'Shrikhand', cursive;
+  font-style: italic;
+  text-align: center;
+  color: #437c53;
+  margin: 0px 0 70px 0;
+}
+ul {
+  padding: 10px;
+  background: rgb(255, 204, 102);
+  font-family: 'Titan One', cursive;
+  text-align: center;
+  }
+li {
+  display: inline;
+  padding: 0px 10px 0px 10px;
+  }
+p {
+  font-family: 'Shrikhand', cursive;
+  color: rgba(255,255,255,1);
+  background: black;
+  background: linear-gradient(bottom, rgba(255,176,92,1), rgba(82,168,99,.4));
+  background: -webkit-linear-gradient(bottom, rgba(255,176,92,1), rgba(82,168,99,.4));
+  background: -moz-linear-gradient(bottom, rgba(255,176,92,1), rgba(82,168,99,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+.price {
+  float: right;
+}
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+<ul>
+  <li><button onclick="first()">Vinyls</button></li>
+  <li><button onclick="second()">Hoodies/Sweaters</button></li>
+  <li><button onclick="third()">Posters</button></li>
+</ul>
+<h1>frank ocean merch</h1>
+<h2>channel orange, blonde, endless</h2>
+<div id="products"></div>
+<script>
+firstDivs = [
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>blonde vinyl <span class="price">$30</span><br /><small> blonde vinyl. limited time only. blonde album tracklist, includes 17 songs. produced by frank ocean. </small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>endless vinyl <span class="price">$18</span><br /><small>"new improved full-dimensional stereo" only available for purchase about one week. includes endless songs and visuals.</small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>nostalgia, ULTRA vinyl <span class="price">$22</span><br /><small>limited to 750 copies. manufactured in italy. includes 14 songs of nostalgia, ULTRA and was released in 2013.</small></p></div>',
+  ]
+secondDivs = [
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>channel ORANGE hoodie <span class="price">$30</span><br /><small> channel ORANGE hoodie. available sizes: small, medium, large and extra-large. only 15 left. channel ORANGE printed on the hoodie</small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>blonde nascar hoodie <span class="price">$18</span><br /><small>blonde nascar logo printed on the hoodie. available sizes are small, medium, large and extra-large. 25 left.</small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>frank ocean hoodie <span class="price">$22</span><br /><small>frank ocean helmet with blonde printed on the hoodie, available sizes: s, m, l and xl. only 15 left.</small></p></div>',
+  ]
+thirdDivs = [
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>endless poster  <span class="price">$30</span><br /><small>endless double sided poster (24x36). endless artwork at the front and frank ocean posing in a photoshoot at the back. designed by frank ocean himself. </small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>channel ORANGE & blonde poster <span class="price">$18</span><br /><small>channel ORANGE & blonde album artwork by frank ocean made into a poster. (24x36) </small></p></div>',
+'<div class="item" onclick=this.classList.toggle("show-description")><p>frank ocean poster <span class="price">$22</span><br /><small>frank ocean face artwork made by a fan that is made into a (24x36) poster. the poster is signed by frank ocean.</small></p></div>',
+  ]
+firstImages = [
+  'url("https://static1.squarespace.com/static/57aa9c64e58c62f754f3745b/t/583c5de220099e25d0af10f5/1480351214888/")',
+  'url("https://static.stereogum.com/uploads/2017/11/Frank-Ocean-Endless-vinyl-1511790508-640x640.jpg")',
+  'url("https://d2h1pu99sxkfvn.cloudfront.net/b0/4515751/455909403_XaB8Hw3Ino/P6.jpg")',
+  ]
+secondImages = [
+  'url("https://cdn.shopify.com/s/files/1/2273/2287/products/6262f722b68515b6674694846e4fb050_1024x1024.jpg?v=1541472512")',
+  'url("https://cdn.shopify.com/s/files/1/2716/4052/products/frank-ocean-blonde-hoodie-streetgarm-hood-white-sleeve-outerwear-sweatshirt_361.jpg?v=1542980703")',
+  'url("https://res.cloudinary.com/teepublic/image/private/s---Pr_3GzQ--/t_Resized%20Artwork/c_crop,x_10,y_10/c_fit,w_409/c_crop,g_north_west,h_544,w_409,x_0,y_0/g_north_west,u_upload:v1446840592:production:blanks:y7jxq9bohzhad5bkpchb,x_-428,y_-347/b_rgb:eeeeee/c_limit,f_jpg,h_630,q_90,w_630/v1534100101/production/designs/3011974_0.jpg")',
+  ]
+thirdImages = [
+  'url("https://static1.squarespace.com/static/597febe6725e2529bad5fc50/5a32cd11e2c483ef9f7d44ed/5a32cd129140b7467fd4b072/1513278739515/Poster1-1_73a8c7eb-3ad6-4914-86d8-3c279630bc91_grande.jpg?format=750w")',
+  'url("https://i.etsystatic.com/14435640/r/il/36f209/1170167609/il_570xN.1170167609_ivk4.jpg")',
+  'url("https://cdn.shopify.com/s/files/1/0625/4877/products/frank_ocean_poster_new.jpg?v=1430295271")',
+  ]
+  
+  function first() {
+    product1 = document.getElementById("products")
+    product1.innerHTML = ''
+    //alert ("You have selected the vinyl.")
+    items = document.getElementsByClassName("item")
+    for (i=0; i<3; i=i+1) {
+      product1.innerHTML += firstDivs[i]
+      items[i].style.background = firstImages[i]
+      items[i].style.backgroundSize = '100% 100%'
+      }
+  }
+  
+  function second() {
+    product2 = document.getElementById("products")
+    product2.innerHTML = ''
+    //alert ("You have selected the hoodie/sweater.")
+    items = document.getElementsByClassName("item")
+    for (i=0; i<3; i=i+1) {
+      product2.innerHTML += secondDivs[i]
+      items[i].style.background = secondImages[i]
+      items[i].style.backgroundSize = '100% 100%'
+      }
+    }
+  function third() {
+    product3 = document.getElementById("products")
+    product3.innerHTML = ''
+    //alert ("You have selected the poster.")
+    items = document.getElementsByClassName("item")
+    for (i=0; i<3; i=i+1) {
+      product3.innerHTML += thirdDivs[i]
+      items[i].style.background = thirdImages[i]
+      items[i].style.backgroundSize = '100% 100%'
+      }
+    } 
+</script>
+
+</body>
