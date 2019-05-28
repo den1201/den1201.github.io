@@ -61,19 +61,24 @@ function draw() {
   fill(244, 173, 66);
   circle(a,b,45*s);
   fill(244, 95, 66)
-
-  if(keyIsDown(LEFT_ARROW)){
-    x = x - 5
+  if(touches.length == 0) {
+    if(keyIsDown(LEFT_ARROW)){
+     x = x - 5
+   }
+    if(keyIsDown(RIGHT_ARROW)){
+     x = x + 5
+   }
+    if(keyIsDown(DOWN_ARROW)){
+     y = y + 5
+   }
+    if(keyIsDown(UP_ARROW)){
+     y = y - 5
+   }
   }
-  if(keyIsDown(RIGHT_ARROW)){
-    x = x + 5
-  }
-  if(keyIsDown(DOWN_ARROW)){
-    y = y + 5
-  }
-  if(keyIsDown(UP_ARROW)){
-    y = y - 5
-  }
+else {
+   x = touches[0].x
+   y = touches[0].y
+}
   a = a + 3*direction_h
   b = b + 5*direction_v
   if(a > width || a < 0) {
