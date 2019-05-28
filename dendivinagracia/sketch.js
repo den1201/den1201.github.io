@@ -134,7 +134,7 @@ function draw() {
      time = time - 0.1
   } 
   else {
-    game.innerHTML="Name? <input id='den'><button onclick='restart()'>Restart</button><button onclick='generate_alltime_leaderboard()'"
+    game.innerHTML="Name? <input id='den'><button onclick='restart()'>Restart</button><button onclick='generate_alltime_leaderboard()'>All-time leaderboard</button>"
     noLoop()
   }
 }
