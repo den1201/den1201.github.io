@@ -8,3 +8,6 @@ html, body {
 canvas {
   display: block;
 }
+#game, #game input, button {
+  font-size: 120%;
+}
